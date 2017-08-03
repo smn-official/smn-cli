@@ -1,6 +1,6 @@
 {
   "name": "smn-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "SMN CLI",
   "main": "index.js",
   "scripts": {
@@ -18,5 +18,9 @@
   },
   "devDependencies": {
     "@angular/cli": "^1.2.1"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "smn-cli": "index.js"
   }
 }
