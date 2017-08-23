@@ -122,9 +122,15 @@ export class ApiService {
                 thirdParam = undefined;
             }
 
-            return this.http[method](url, secondParam, thirdParam)
+            const http = this.http[method](url, secondParam, thirdParam)
                 .map(this.extractData)
                 .catch(this.handleError);
+
+            return {
+                subscribe: (pNext, pError?, pFinally?) => {
+                    return http.finally(pFinally).subscribe(pNext, pError);
+                }
+            }
         }
     }
 
